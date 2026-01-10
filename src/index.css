@@ -1,0 +1,266 @@
+:root {
+  --color-body: #3b3b3b;
+  --color-screen-bg: #c2dcc0;
+  --color-key-num: #e0e0e0;
+  --color-key-func: #2a2a2a;
+  --color-key-ac: #d94d4d;
+  --color-accent-shift: #d4b106;
+  --color-accent-alpha: #d94d4d;
+  --color-text-lcd: #1a1a1a;
+  --color-text-light: #ffffff;
+  --color-text-dark: #000000;
+
+  --font-family-lcd: 'Share Tech Mono', monospace;
+  --font-family-keys: 'Roboto', sans-serif;
+
+  --shadow-bevel: inset 1px 1px 2px rgba(255, 255, 255, 0.1), inset -1px -1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-btn: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-deep: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  font-family: var(--font-family-keys);
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  outline: none;
+  font-family: inherit;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Calculator Shell */
+.calc-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  border-radius: 20px;
+  background-color: var(--color-body);
+  width: 380px;
+  height: 700px;
+  box-shadow: var(--shadow-deep);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Branding Area */
+.brand-area {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.brand-text {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-casio {
+  font-size: 18px;
+  font-style: italic;
+}
+
+.brand-svpam {
+  font-size: 10px;
+  color: var(--color-screen-bg);
+  margin-top: 4px;
+}
+
+.solar-panel {
+  width: 64px;
+  height: 32px;
+  background-color: #2a2a2a;
+  border: 1px solid #555;
+  border-radius: 2px;
+  opacity: 0.8;
+  background-image: repeating-linear-gradient(90deg, transparent 0, transparent 4px, #444 4px, #444 5px);
+}
+
+/* Display Lines */
+.display-container {
+  width: 100%;
+  background-color: var(--color-screen-bg);
+  padding: 8px;
+  margin-bottom: 16px;
+  border-radius: 2px;
+  border: 4px solid #303030;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+  font-family: var(--font-family-lcd);
+  box-sizing: border-box;
+}
+
+.display-indicators {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 16px;
+  font-size: 10px;
+  color: black;
+  padding: 0 4px;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  letter-spacing: -0.5px;
+  box-sizing: border-box;
+}
+
+.display-indicators div {
+  display: flex;
+  gap: 8px;
+}
+
+.display-line-expr {
+  width: 100%;
+  height: 32px;
+  text-align: left;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: var(--color-text-lcd);
+  line-height: 1;
+  font-family: monospace;
+}
+
+.display-line-res {
+  width: 100%;
+  height: 40px;
+  text-align: right;
+  font-size: 32px;
+  overflow: hidden;
+  color: var(--color-text-lcd);
+  line-height: 1;
+  letter-spacing: 2px;
+}
+
+
+/* Grids */
+.grid-top {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+
+.grid-func {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.grid-main {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  width: 100%;
+  margin-top: auto;
+}
+
+
+/* Positioning Spans */
+.col-span-1 {
+  grid-column: span 1;
+}
+
+.col-span-2 {
+  grid-column: span 2;
+}
+
+
+/* Components */
+.replay-container {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 40px;
+}
+
+.replay-btn {
+  width: 64px;
+  height: 48px;
+  background-color: #555;
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid black;
+  cursor: pointer;
+}
+
+.replay-btn:active {
+  transform: translateY(1px);
+}
+
+.replay-text {
+  color: #ccc;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* Button Classes */
+.btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  height: 100%;
+  gap: 2px;
+}
+
+.btn-labels {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 4px;
+  font-size: 10px;
+  position: absolute;
+  top: -16px;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.btn-base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s;
+  font-weight: bold;
+}
+
+.btn-base:active {
+  transform: translateY(2px);
+  border-bottom: none !important;
+  /* Override inline style momentarily */
+}
