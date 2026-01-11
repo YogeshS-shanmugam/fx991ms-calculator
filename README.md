@@ -46,3 +46,7 @@ A fully functional web-based scientific calculator modeled after the **Casio fx-
 - `src/components/Display.tsx`: The LCD screen component.
 - `src/components/Button.tsx`: Reusable button component with Shift/Alpha labels.
 - `src/utils/calculatorLogic.ts`: Core logic engine using mathjs.
+
+
+## Deployment
+Hosted on GitHub Pages.
