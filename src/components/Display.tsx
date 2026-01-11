@@ -15,7 +15,7 @@ const Display: React.FC<DisplayProps> = ({
     result,
     isShift,
     isAlpha,
-    mode,
+
     angleUnit,
     memory
 }) => {

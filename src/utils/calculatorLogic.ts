@@ -1,4 +1,4 @@
-import { evaluate, format, sin, cos, tan, log, unit } from 'mathjs';
+import { evaluate, format, sin, cos, tan, unit } from 'mathjs';
 
 export interface CalculatorState {
     expression: string;
